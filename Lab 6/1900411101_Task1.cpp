@@ -1,108 +1,91 @@
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
+#include "1900411101_Task1.h"
 
-class Coordinate
+float Coordinate::getDistance(const Coordinate &b) const
 {
-	double x, y;
+	return sqrt((x - b.x) * (x - b.x) + (y - b.y) * (y - b.y));
+}
+float Coordinate::getDistance() const
+{
+	return getDistance(Coordinate(0, 0));
+}
 
-public:
-	Coordinate(double _x = 0, double _y = 0) : x(_x), y(_y) 
-	{
+void Coordinate::move_x(float v)
+{
+	x += v;
+}
 
-	}
-	~Coordinate() 
-	{
+void Coordinate::move_y(float v)
+{
+	y += v;
+}
+void Coordinate::move(float v)
+{
+	move_x(v);
+	move_y(v);
+}
+Coordinate Coordinate::operator++()
+{
+	return Coordinate(++x, ++y);
+}
 
-	}
+Coordinate Coordinate::operator++(int)
+{
+	return Coordinate(x++, y++);
+}
 
-	float getDistance(const Coordinate &b) const
-	{
-		return sqrt((x - b.x) * (x - b.x) + (y - b.y) * (y - b.y));
-	}
-	float getDistance() const
-	{
-		return getDistance(Coordinate(0, 0));
-	}
+Coordinate Coordinate::operator--()
+{
+	return Coordinate(--x, --y);
+}
 
-	void move_x(float v)
-	{
-		x += v;
-	}
+Coordinate Coordinate::operator--(int)
+{
+	return Coordinate(x--, y--);
+}
+bool Coordinate::operator>(Coordinate c)
+{
+	float a = getDistance();
+	float b = c.getDistance();
+	if(a>b) return true;
+	return false;
+}
 
-	void move_y(float v)
-	{
-		y += v;
-	}
-	void move(float v)
-	{
-		move_x(v);
-		move_y(v);
-	}
-	Coordinate operator++()
-	{
-		return Coordinate(++x, ++y);
-	}
+bool Coordinate::operator<(Coordinate c)
+{
+	if(c>*this) return true;
+	return false;
+}
 
-	Coordinate operator++(int)
-	{
-		return Coordinate(x++, y++);
-	}
-
-	Coordinate operator--()
-	{
-		return Coordinate(--x, --y);
-	}
-
-	Coordinate operator--(int)
-	{
-		return Coordinate(x--, y--);
-	}
-	bool operator>(Coordinate c)
-	{
-		float a = getDistance();
-		float b = c.getDistance();
-		if(a>b) return true;
-		return false;
-	}
-
-	bool operator<(Coordinate c)
-	{
-		if(c>*this) return true;
-		return false;
-	}
-
-	bool operator==(Coordinate c)
-	{
-		if(c > *this || c < *this) return false;
-		return true;
-	}
+bool Coordinate::operator==(Coordinate c)
+{
+	if(c > *this || c < *this) return false;
+	return true;
+}
 
 
-	bool operator!=(Coordinate c)
-	{
-		if(c == *this) return false;
-		return true;
-	}
+bool Coordinate::operator!=(Coordinate c)
+{
+	if(c == *this) return false;
+	return true;
+}
 
-	bool operator<=(Coordinate c)
-	{
-		if(c < *this) return false;
-		return true;
-	}
+bool Coordinate::operator<=(Coordinate c)
+{
+	if(c < *this) return false;
+	return true;
+}
 
-	bool operator>=(Coordinate c)
-	{
-		if(c > *this) return false;
-		return true;
-	}
+bool Coordinate::operator>=(Coordinate c)
+{
+	if(c > *this) return false;
+	return true;
+}
 
 
-	void display()
-	{
-		cout << "(x,y) = "<< "(" << x << "," << y << ")\n";
-	}
-};
+void Coordinate::display()
+{
+	cout << "(x,y) = "<< "(" << x << "," << y << ")\n";
+}
 
 int main()
 {

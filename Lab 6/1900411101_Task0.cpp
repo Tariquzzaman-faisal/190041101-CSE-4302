@@ -1,5 +1,6 @@
-#include <bits/stdc++.h>
-#define ll long long
+#include <iostream>
+#include <math.h>
+#include <string.h>
 using namespace std;
 
 class time12

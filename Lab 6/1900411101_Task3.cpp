@@ -1,93 +1,72 @@
-#include <iostream>
-#include <math.h>
-#include <string.h>
-using namespace std;
+#include "1900411101_Task3.h"
 
-class ZooAnimal
+char* ZooAnimal::getnameofAnimal()
 {
-private:
-	char nameofAnimal[40];
-	int birthYear;
-	int cageNumber;
-	float weight;
-	int height;
+	return nameofAnimal;
+}
 
-public:
-	ZooAnimal(int b = 2021, int c = 0, float w = 0.0, int h = 0) : birthYear(b), cageNumber(c), weight(w), height(h)
-	{
-		strcpy(nameofAnimal, "");
-	}
+int ZooAnimal::getbirthYear() const
+{
+	return birthYear;
+}
+int ZooAnimal::getcageNumber() const
+{
+	return cageNumber;
+}
 
-	char *getnameofAnimal()
-	{
-		return nameofAnimal;
-	}
+float ZooAnimal::getWeight() const
+{
+	return weight;
+}
+int ZooAnimal::getheight() const
+{
+	return height;
+}
 
-	int getbirthYear() const
-	{
-		return birthYear;
-	}
-	int getcageNumber() const
-	{
-		return cageNumber;
-	}
+void ZooAnimal::setName(const char *name)
+{
+	strcpy(nameofAnimal, name);
+}
+void ZooAnimal::setBYear(int byear)
+{
+	birthYear = byear;
+}
+void ZooAnimal::setCageNumber(int x)
+{
+	cageNumber = x;
+}
+void ZooAnimal::setWeight(int x)
+{
+	weight = x;
+}
+void ZooAnimal::setHeight(int x)
+{
+	height = x;
+}
 
-	float getWeight() const
-	{
-		return weight;
-	}
-	int getheight() const
-	{
-		return height;
-	}
+int ZooAnimal::getAge()
+{
+	return 2021 - birthYear;
+}
 
-	void setName(const char *name)
-	{
-		strcpy(nameofAnimal, name);
-	}
-	void setBYear(int byear = 2021)
-	{
-		birthYear = byear;
-	}
-	void setCageNumber(int x)
-	{
-		cageNumber = x;
-	}
-	void setWeight(int x)
-	{
-		weight = x;
-	}
-	void setHeight(int x)
-	{
-		height = x;
-	}
+void ZooAnimal::getInformation()
+{
+	printf("Name: %s", nameofAnimal);
+	cout << " Birth Year: " << birthYear << " Cage Number:" << cageNumber << " Weight: " << weight << " Height: " << height << endl;
+}
 
-	int getAge()
-	{
-		return 2021 - birthYear;
-	}
+//lab 6
+bool ZooAnimal::operator==(int data)
+{
+	return ((int)weight == data);
+}
 
-	void getInformation()
-	{
-		printf("Name: %s", nameofAnimal);
-		cout << " Birth Year: " << birthYear << " Cage Number:" << cageNumber << " Weight: " << weight << " Height: " << height << endl;
-	}
-
-	//lab 6
-	bool operator==(int data)
-	{
-		return ((int)weight == data);
-	}
-
-	void operator--(int dec)
-	{
-		if (dec == 0)
-			dec = 1;
-		height -= dec;
-	}
-
-	~ZooAnimal() {}
-};
+void ZooAnimal::operator--(int dec)
+{
+	if (dec == 0)
+		dec = 1;
+	height -= dec;
+}
 
 int main()
 {
