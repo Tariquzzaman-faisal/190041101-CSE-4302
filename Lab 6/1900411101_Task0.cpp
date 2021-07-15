@@ -22,7 +22,7 @@ public:
     {
     }
     void display() const
-    //format: 11:59 p.m.
+    //format: 11:59 p.m. 
     {
         cout << hrs << ":";
         if (mins < 10)

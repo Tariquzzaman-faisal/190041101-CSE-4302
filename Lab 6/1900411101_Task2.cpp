@@ -40,6 +40,9 @@ int main(){
 	// f3 = f1*f2;
 	// f3 = f1/f2;
 	// f3 = f2/f1;
-	// f3 = f1/f0;
+	f3 = f1/f2;
+
+	int k = f3;
+	cout<<k<<endl;
 	f3.display();
 }
