@@ -12,11 +12,9 @@ protected:
     Material madeof;
 public:
 
-    Furniture(double p,double d,Material m):price(0),discount(0),madeof(Material::Wood)
+    Furniture(double p=0,double d=0,Material m=Material::Wood):price(p),discount(d),madeof(m)
     {
-        setPrice(p);
-        setDiscount(d);
-        setMadeof(m);
+
     }
     void setPrice(double val)
     {
@@ -146,17 +144,7 @@ public:
         else
             return string("");
     }
-    // Furniture *f;
-    // void a()
-    // {
-    //     f = new Bed();
 
-    // }
-
-    // ~Sofa
-    // {
-    //     delete f;
-    // }
 };
 
 enum class AlmirahSize{Two=2,Three,Four};
@@ -237,7 +225,7 @@ int main()
     // So that following lines can be executed without error
     
     sort_furniture_discount(f_list,4);
-    cout<<"Sorted array:\n";
+    cout<<"\nSorted array:\n";
     for(int i=0; i<4; i++)
     {
         f_list[i]->productDetails();
