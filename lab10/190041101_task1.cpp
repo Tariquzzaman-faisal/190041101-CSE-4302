@@ -56,6 +56,7 @@ void pure_virtual_function_test();
 
 
 int main(){
+	
 	virtual_function_test();
 	pure_virtual_function_test();
 	return 0;
